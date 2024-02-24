@@ -1,0 +1,18 @@
+.pagination {
+    display: flex;
+    padding: 3px;
+    height: 30px;
+    gap: 8px;
+}
+
+.pagination button {
+    width: 20px;
+    font-size: 13px;
+    background: none;
+    border: none;
+    color: #8A817C;
+}
+
+.pagination button:first-child {
+    width: fit-content;
+}

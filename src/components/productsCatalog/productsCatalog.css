@@ -1,0 +1,45 @@
+.catalog {
+    width: 100%;
+    padding: 5px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.item {
+    padding: 10px;
+    height: 150px;
+    background-color: #ffffff49;
+    border: 1px solid #D6CCC2;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.item .id {
+    font-size: 11px;
+    color: #D6CCC2;
+}
+
+.item .brand {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    color: #8A817C;
+}
+
+.item .product {
+    font-size: 15px;
+    color: #463F3A;
+} 
+
+.item .price {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    color: #6c584c;
+    font-weight: 600;
+}
+
+
+
