@@ -41,5 +41,21 @@
     font-weight: 600;
 }
 
+@media (max-width: 900px) {
+.catalog {
+    grid-template-columns: repeat(2, 1fr);
+}
+}
 
+@media (max-width: 450px) {
+    .catalog {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 10px;
+    }
 
+    .item {
+        min-height: 50px;
+        gap: 3px;
+    }
+    }
+    
