@@ -33,7 +33,7 @@ function App() {
     return formattedDate;
   }
 
-  const requestUrl = 'http://api.valantis.store:40000/';
+  const requestUrl = 'https://api.valantis.store:41000/';
 
   const requestHeaders = {
     headers: {

@@ -8,7 +8,7 @@
 
 .item {
     padding: 10px;
-    height: 150px;
+    min-height: 150px;
     background-color: #ffffff49;
     border: 1px solid #D6CCC2;
     border-radius: 5px;
