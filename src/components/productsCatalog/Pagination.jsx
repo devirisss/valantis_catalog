@@ -4,8 +4,11 @@ import './pagination.css';
 
 const Pagination = ({ data, dataLimit }) => {
 
-    const [pages] = useState(Math.ceil(data.length / dataLimit));
+    const pagesLimit = 3;
+    const pages = Math.ceil(data.length / dataLimit);
     const [currentPage, setCurrentPage] = useState(1);
+    const start = Math.floor((currentPage - 1) / pagesLimit) * pagesLimit;
+    const [nPage, setNPage] = useState(0);
 
     function goToNextPage() {
         if (currentPage < pages) {
@@ -32,6 +35,11 @@ const Pagination = ({ data, dataLimit }) => {
         return data.slice(startIndex, endIndex);
     };
 
+
+    const getPaginationGroup = () => {
+        return new Array(pages).fill().map((_, idx) => idx + 1).slice(nPage, nPage + 3);
+    };
+
     return (
         <>
             <ProductsCatalog data={getPaginatedData} />
@@ -39,14 +47,21 @@ const Pagination = ({ data, dataLimit }) => {
                 <button onClick={goToPreviousPage}>
                     Назад
                 </button>
-                {new Array(pages).fill().map((_, index) => (
+                {getPaginationGroup().map((item, index) => (
                     <button
                         key={index}
                         onClick={changePage}
                     >
-                        <span>{index + 1}</span>
+                        <span>{item}</span>
                     </button>
                 ))}
+                {pages > pagesLimit ?
+                    <button onClick={() => setNPage(nPage + 3)}>
+                        <span>{">"}</span>
+                    </button>
+                    :
+                    null
+                }
                 <button
                     onClick={goToNextPage}>
                     Вперед
