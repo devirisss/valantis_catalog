@@ -12,15 +12,16 @@ const Pagination = ({ data, dataLimit }) => {
 
     function goToNextPage() {
         if (currentPage < pages) {
-            setCurrentPage((currentPage) => currentPage + 1);
+            setCurrentPage((prevPage) => prevPage + 1);
+            setNPage(currentPage);
         }
     }
 
     function goToPreviousPage() {
         if (currentPage > 1) {
-            setCurrentPage((currentPage) => currentPage - 1);
-        } else {
-            setCurrentPage((currentPage) => currentPage)
+            const newCurrentPage = currentPage - 1;
+            setCurrentPage(newCurrentPage);
+            setNPage(newCurrentPage - 1);
         }
     }
 
@@ -37,7 +38,7 @@ const Pagination = ({ data, dataLimit }) => {
 
 
     const getPaginationGroup = () => {
-        return new Array(pages).fill().map((_, idx) => idx + 1).slice(nPage, nPage + 3);
+        return new Array(pages).fill().map((_, idx) => idx + 1).slice(nPage, nPage + pagesLimit);
     };
 
     return (
@@ -51,12 +52,13 @@ const Pagination = ({ data, dataLimit }) => {
                     <button
                         key={index}
                         onClick={changePage}
+                        className={currentPage == item ? 'activePage' : ''}
                     >
                         <span>{item}</span>
                     </button>
                 ))}
-                {pages > pagesLimit ?
-                    <button onClick={() => setNPage(nPage + 3)}>
+                {pages > nPage + pagesLimit ?
+                    <button onClick={() => setNPage(nPage + pagesLimit)}>
                         <span>{">"}</span>
                     </button>
                     :

@@ -16,3 +16,9 @@
 .pagination button:first-child {
     width: fit-content;
 }
+
+.activePage span{
+    font-weight: 600;
+    font-size: 14px;
+    color: #463F3A;
+}
