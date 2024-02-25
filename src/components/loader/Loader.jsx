@@ -1,11 +1,12 @@
-
+import './loader.css';
+import LoaderImg from'../../images/loader.png';
 
 const Loader = () => {
 
     return(
         <div className='loader'>
             <p>Загружаем...</p>
-            <img></img>
+            <img src={LoaderImg}></img>
         </div>
     )
 }
