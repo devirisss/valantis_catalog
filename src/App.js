@@ -93,7 +93,8 @@ function App() {
       })
   }
 
-  const refreshData = () => {
+  const refreshData = (e) => {
+    e.preventDefault();
     setFilteredItems(null);
     setLoading(true);
     getData();
